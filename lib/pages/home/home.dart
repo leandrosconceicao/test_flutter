@@ -16,14 +16,6 @@ class _HomePageState extends State<HomePage> with FormValidators, LayoutWidgets 
   final formKey = GlobalKey<FormState>();
 
   @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      FocusScope.of(context).requestFocus(control.userFcs);
-    });
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
@@ -56,9 +48,9 @@ class _HomePageState extends State<HomePage> with FormValidators, LayoutWidgets 
 
   Center loginForm(bool isMobile, BuildContext context) {
     return Center(
-      child: Form(
-        key: formKey,
-        child: SingleChildScrollView(
+      child: SingleChildScrollView(
+        child: Form(
+          key: formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -69,8 +61,8 @@ class _HomePageState extends State<HomePage> with FormValidators, LayoutWidgets 
                 focus: control.userFcs,
                 control: control.userInput,
                 onFieldSubmitted: (_) {
-                  FocusScope.of(context).requestFocus(control.passFcs);
-                },
+                  control.passFcs.requestFocus();
+                }
               ),
               inputForm(
                 "Senha",
@@ -140,6 +132,7 @@ class _HomePageState extends State<HomePage> with FormValidators, LayoutWidgets 
               ),
             ),
             TextFormField(
+              focusNode: focus,
               obscureText: obscureText,
               controller: control,
               validator: validator,

@@ -6,19 +6,19 @@ class RouteGenerator {
 
   String route;
 
-  static const home = "/";
-  static const capture = "/capture";
+  static const _home = "/";
+  static const _capture = "/capture";
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     return switch(settings.name) {
-      capture => MaterialPageRoute(builder: (ctx) => const CaptureScreen()),
+      _capture => MaterialPageRoute(builder: (ctx) => const CaptureScreen()),
       _ => MaterialPageRoute(builder: (ctx) => const HomePage())
     };
   }
 
-  RouteGenerator.homePage() : route = home;
+  RouteGenerator.homePage() : route = _home;
 
-  RouteGenerator.capturePage() : route = capture;
+  RouteGenerator.capturePage() : route = _capture;
 
   Future<void> goTo(BuildContext context) async {
     Navigator.pushNamedAndRemoveUntil(context, route, (route) => false);

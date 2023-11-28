@@ -23,6 +23,9 @@ mixin FormValidators {
     if (value!.isEmpty) {
       return "Obrigatório";
     }
+    if (value.length < 2) {
+      return "Inválido";
+    }
     if (value.length > 20) {
       return "Tamanho limite excedido (20 caracteres)";
     }

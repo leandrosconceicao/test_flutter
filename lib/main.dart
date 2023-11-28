@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       onGenerateRoute: RouteGenerator.onGenerateRoute,
-      initialRoute: RouteGenerator.home,
+      initialRoute: RouteGenerator.homePage().route,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       supportedLocales: const [Locale('pt')],
       // home: const HomePage(),

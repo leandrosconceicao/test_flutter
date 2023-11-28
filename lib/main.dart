@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'routes/routes.dart';
 
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: RouteGenerator.onGenerateRoute,
       initialRoute: RouteGenerator.home,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      supportedLocales: const [Locale('pt')],
       // home: const HomePage(),
     );
   }
